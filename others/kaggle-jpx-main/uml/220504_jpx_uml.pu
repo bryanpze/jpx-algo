@@ -1,0 +1,11 @@
+@startuml kaggle_jpx_uml{Association.png} 
+
+title kaggle_jpx_uml
+
+
+class Main
+class Preprocessor
+
+Main ..> Preprocessor
+
+@enduml

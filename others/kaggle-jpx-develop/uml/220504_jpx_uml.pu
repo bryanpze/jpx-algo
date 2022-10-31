@@ -1,0 +1,38 @@
+@startuml kaggle_jpx_uml{Association.png} 
+
+title kaggle_jpx_uml
+
+
+class Main
+class ScoringService{
+    DataFrames
+    get_dataset()
+}
+
+class DataFrames{
+    dict[str, DataFrame]
+    is_empty()
+}
+
+class DataLoader{
+    get_dataset()
+}
+
+class Preprocessor{
+    preprocessing()
+}
+
+package pandas{
+    class DataFrame
+}
+
+Main ..> ScoringService
+ScoringService "1" o-right-> "1" DataFrames
+DataFrames "1" o-right-> "many" DataFrame
+
+ScoringService ..> DataLoader
+ScoringService ..> Preprocessor
+
+DataLoader ..> DataFrames
+
+@enduml
